@@ -10,7 +10,7 @@ const VideoCards = ({ videos }) => {
       {videos.map((video, index) => (
         <div key={index} className="video-card">
           <Link to={`/videos/${video.id.videoId}`}>
-            <img src={video.snippet.thumbnails.medium.url} />
+            <img src={video.snippet.thumbnails.medium.url} alt="video-thumbnail"/>
           </Link>{" "}
           <Link to={`/videos/${video.id.videoId}`}>
             <p
