@@ -1,0 +1,23 @@
+.showVid-main {
+  display: flex;
+  margin: 3%;
+}
+
+.showVid {
+  width: 720px;
+  height: 480px;
+}
+
+.showVid-side {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-left: 10%;
+}
+
+.showVid-image {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  margin-right: 10px;
+}

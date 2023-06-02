@@ -1,0 +1,31 @@
+.video-containers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+video-card p {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.2;
+  font-weight: bold;
+  margin-bottom: 0; /* Add this line to remove any default bottom margin */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
