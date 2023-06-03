@@ -28,3 +28,13 @@
 .results.has-videos {
   background-color: transparent; /* Remove the background color */
 }
+
+.small-button {
+  padding: 3px 10px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.results > p {
+  padding-top: 10px;
+}
