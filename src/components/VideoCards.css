@@ -29,3 +29,7 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+img {
+  border-radius: 10px;
+}
