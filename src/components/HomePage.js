@@ -12,7 +12,7 @@ function HomePage({ handleUserInput, handleClick, userInput, videos }) {
           onChange={handleUserInput}
           value={userInput}
           type="text"
-          className="form-control"
+          className="form-control mb-3"
           placeholder="Search..."
           aria-label="Search"
           aria-describedby="button-addon2"
@@ -20,7 +20,7 @@ function HomePage({ handleUserInput, handleClick, userInput, videos }) {
         <button
           onClick={handleClick}
           value={userInput}
-          className="btn btn-danger"
+          className="btn btn-danger mb-3 small-button"
           type="button"
           id="button-addon2"
           style={{ color: "white" }}
