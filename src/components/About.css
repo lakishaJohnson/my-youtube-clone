@@ -1,0 +1,46 @@
+.credits {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.title {
+  color: #333;
+  font-size: 24px;
+}
+
+.inner {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.credit {
+  width: 200px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.names {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #DC3545;
+}
+
+.links {
+  font-size: 14px;
+  color: #666;
+}
+
+.links a {
+  color: #DC3545;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+.links a:hover {
+  text-decoration: underline;
+  color: #333;
+}
+

@@ -2,7 +2,7 @@ import "./HomePage.css";
 import React from "react";
 import VideoCards from "./VideoCards";
 
-function HomePage({ handleUserInput, handleClick, userInput, videos }) {
+function HomePage({ handleUserInput, handleClick, userInput, videos, handleEnter }) {
   // console.log(videos);
 
   return (
@@ -10,6 +10,7 @@ function HomePage({ handleUserInput, handleClick, userInput, videos }) {
       <div className="input-group mb-3">
         <input
           onChange={handleUserInput}
+          onKeyDown={handleEnter}
           value={userInput}
           type="text"
           className="form-control mb-3"
@@ -20,7 +21,8 @@ function HomePage({ handleUserInput, handleClick, userInput, videos }) {
         <button
           onClick={handleClick}
           value={userInput}
-          className="btn btn-danger mb-3 small-button"
+          className="btn btn-danger mb-3 small-button
+          "
           type="button"
           id="button-addon2"
           style={{ color: "white" }}

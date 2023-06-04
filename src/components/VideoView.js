@@ -19,6 +19,9 @@ const VideoView = ({ videos }) => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
   };
+
+  const currentVideo = videos.find((video) => video.id.videoId === preview.id);
+
   // Render the video card component
   return (
     <div className="showVid-main">
@@ -29,8 +32,16 @@ const VideoView = ({ videos }) => {
           opts={opts}
           onReady={_onReady}
         />
+        {currentVideo ? (
+          <div className="showVid-title">
+            <h4
+              dangerouslySetInnerHTML={{ __html: currentVideo.snippet.title }}
+            />
+            <p>{currentVideo.snippet.channelTitle}</p>
+          </div>
+        ) : null}
         <hr />
-          <VideoComments />
+        <VideoComments />
         <hr />
       </div>
 

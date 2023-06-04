@@ -1,4 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import React from "react";
@@ -14,7 +14,8 @@ import Modal from "./components/Modal";
 function App() {
   const [userInput, setUserInput] = useState("");
   const [videos, setVideos] = useState([]);
-  // const [errorStatus, setErrorStatus] = useState(false);
+  const [errorStatus, setErrorStatus] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   // const handleBadError = () => {
   //   setErrorStatus(400);
@@ -26,10 +27,14 @@ function App() {
   };
 
   const handleClick = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     fetchUserVideos(userInput);
     setUserInput("");
   };
+
+  function resetVideos() {
+    setVideos([]);
+  }
 
   const fetchUserVideos = (userInput) => {
     const apiKey = process.env.REACT_APP_API_KEY;
@@ -43,41 +48,21 @@ function App() {
       })
       .catch((error) => {
         console.error("Error fetching videos:", error);
+        setShowModal(false);
+        setErrorStatus(400);
       });
-    // .then((response) => {
-    //   if (!response.ok) {
-    //     throw new Error("Error: " + response.status);
-    //   }
-    //   return response.json();
-    // })
-    // .then((data) => {
-    //   setAllVideos(data.items);
-    //   console.log(data.items);
-    //   setErrorStatus(false);
-    // })
-    // .catch((error) => {
-    //   console.error("Error fetching videos:", error);
-    //   setErrorStatus(true);
-    // });
-    /////////////////////////////////////////////
-    // .then((response) => response.json())
-    // .then((data) => {
-    //   setAllVideos(data.items);
-    //   console.log(data.items);
-    // })
-    // .catch((error) => {
-    //   if (error.response && error.response.status === 400) {
-    //     handleBadError();
-    //   } else {
-    //     console.error("Error fetching videos:", error);
-    //   }
-    // });
   };
+
+  function handleEnter(event) {
+    if (event.keyCode === 13) {
+      handleClick();
+    }
+  }
 
   return (
     <div className="app-page">
       <Router>
-        <NavBar />
+        <NavBar resetVideos={resetVideos} />
         <Routes>
           <Route
             exact
@@ -86,8 +71,19 @@ function App() {
               <HomePage
                 handleUserInput={handleUserInput}
                 handleClick={handleClick}
+                handleEnter={handleEnter}
                 userInput={userInput}
                 videos={videos}
+              />
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Modal
+                errorStatus={errorStatus}
+                showModal={showModal}
+                setShowModal={setShowModal}
               />
             }
           />
@@ -98,7 +94,7 @@ function App() {
 
         {/* {errorStatus === 400 && <Modal />}
          */}
-        <Modal />
+        {/* <Modal /> */}
       </Router>
     </div>
   );

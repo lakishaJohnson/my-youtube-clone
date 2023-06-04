@@ -2,7 +2,7 @@
 
 import { Link } from "react-router-dom";
 
-function NavBar() {
+function NavBar({ resetVideos }) {
   // const handleHomeClick = () => {
   //   if (window.location.pathname !== "/") {
   //     window.location.href = "/";
@@ -16,12 +16,17 @@ function NavBar() {
       <div className="container-fluid">
         <Link
           className="navbar-brand"
+          onClick={resetVideos}
           to="/"
           style={{ color: "white", fontWeight: "bold" }}
         >
           YouTube
         </Link>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div
+          className="collapse navbar-collapse"
+          onClick={resetVideos}
+          id="navbarNavAltMarkup"
+        >
           <div className="navbar-nav">
             <Link
               className="nav-link active"

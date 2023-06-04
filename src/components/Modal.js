@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Modal.css";
 
-function Modal() {
-  const [showModal, setShowModal] = useState(true);
+function Modal({ errorStatus, showModal, setShowModal }) {
+  // const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const closeModal = () => {
-    setShowModal(false);
+    setShowModal(true);
+    navigate("/");
   };
 
   return (
     <>
-      {showModal && (
+      {/* {errorStatus === 400 && ( */}
+      {!showModal && (
         <div className="modal" tabIndex="-1">
           <div className="modal-content">
             <div className="modal-header">
