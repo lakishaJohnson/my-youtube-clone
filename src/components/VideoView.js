@@ -7,7 +7,7 @@ import VideoComments from "./VideoComments";
 const VideoView = ({ videos }) => {
   const opts = {
     height: "480",
-    width: "720",
+    width: "800",
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
