@@ -42,7 +42,6 @@ const VideoView = ({ videos }) => {
         ) : null}
         <hr />
         <VideoComments />
-        <hr />
       </div>
 
       <div>
