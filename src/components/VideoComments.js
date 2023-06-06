@@ -1,5 +1,5 @@
+import Share from "./Share";
 import "./VideoComments.css";
-//import TwitterShare from "./components/TwitterShare";
 
 import { useState } from "react";
 
@@ -64,7 +64,7 @@ function VideoComments() {
           })}
         </ul>
       </div>
-      {/* <TwitterShare /> */}
+      <Share />
     </form>
   );
 }
