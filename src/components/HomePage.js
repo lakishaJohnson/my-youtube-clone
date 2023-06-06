@@ -2,7 +2,7 @@ import "./HomePage.css";
 import React from "react";
 import VideoCards from "./VideoCards";
 
-function HomePage({ handleUserInput, handleClick, userInput, videos, handleEnter }) {
+function HomePage({ handleUserInput, handleClick, userInput, videos, handleEnter, showModal }) {
   // console.log(videos);
 
   return (
@@ -17,6 +17,7 @@ function HomePage({ handleUserInput, handleClick, userInput, videos, handleEnter
           placeholder="Search..."
           aria-label="Search"
           aria-describedby="button-addon2"
+          disabled={showModal}
         ></input>
         <button
           onClick={handleClick}

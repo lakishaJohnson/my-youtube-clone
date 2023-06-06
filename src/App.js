@@ -14,20 +14,14 @@ import Modal from "./components/Modal";
 function App() {
   const [userInput, setUserInput] = useState("");
   const [videos, setVideos] = useState([]);
-  const [errorStatus, setErrorStatus] = useState(null);
   const [showModal, setShowModal] = useState(false);
-
-  // const handleBadError = () => {
-  //   setErrorStatus(400);
-  // };
 
   const handleUserInput = (event) => {
     setUserInput(event.target.value);
     // console.log(event.target.value)
   };
 
-  const handleClick = (event) => {
-    // event.preventDefault();
+  const handleClick = () => {
     fetchUserVideos(userInput);
     setUserInput("");
   };
@@ -41,15 +35,23 @@ function App() {
     const apiUrl = `https://youtube.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&type=video&q=${userInput}&maxResults=8`;
 
     fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        setVideos(data.items);
-        console.log(data.items);
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("API request failed");
+        }
+        return response.json();
+      })
+      .then((response) => {
+        if (response.items.length === 0) {
+          setShowModal(true);
+        } else {
+          setVideos(response.items);
+          setShowModal(false);
+        }
       })
       .catch((error) => {
-        console.error("Error fetching videos:", error);
-        setShowModal(false);
-        setErrorStatus(400);
+        console.log(error);
+        setShowModal(true);
       });
   };
 
@@ -74,28 +76,23 @@ function App() {
                 handleEnter={handleEnter}
                 userInput={userInput}
                 videos={videos}
+                showModal={showModal}
               />
             }
           />
-          <Route
+          {/* <Route
             path="*"
             element={
               <Modal
-                errorStatus={errorStatus}
-                showModal={showModal}
                 setShowModal={setShowModal}
               />
             }
-          />
+          /> */}
           <Route path="/about" element={<About />} />
           <Route path="/videos/:id" element={<VideoView videos={videos} />} />
         </Routes>
-        {/* {errorStatus && <Modal />} */}
-
-        {/* {errorStatus === 400 && <Modal />}
-         */}
-        {/* <Modal /> */}
       </Router>
+      {showModal && <Modal setShowModal={setShowModal} />}
     </div>
   );
 }
