@@ -1,16 +1,6 @@
-// import React from "react"
-
 import { Link } from "react-router-dom";
 
 function NavBar({ resetVideos }) {
-  // const handleHomeClick = () => {
-  //   if (window.location.pathname !== "/") {
-  //     window.location.href = "/";
-  //   } else {
-  //     window.location.reload();
-  //   }
-  // };
-
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-danger">
       <div className="container-fluid">
@@ -18,7 +8,7 @@ function NavBar({ resetVideos }) {
           className="navbar-brand"
           onClick={resetVideos}
           to="/"
-          style={{ color: "white", fontWeight: "bold" }}
+          style={{ color: "white", fontWeight: "bold", fontSize: "1.5rem" }}
         >
           YouTube
         </Link>
@@ -33,11 +23,15 @@ function NavBar({ resetVideos }) {
               aria-current="page"
               to="/"
               // onClick={handleHomeClick}
-              style={{ color: "white" }}
+              style={{ color: "white", fontSize: "1.2rem", paddingTop: "10px" }}
             >
               Home
             </Link>
-            <Link className="nav-link" to="/about" style={{ color: "white" }}>
+            <Link
+              className="nav-link"
+              to="/about"
+              style={{ color: "white", fontSize: "1.2rem", paddingTop: "10px" }}
+            >
               About
             </Link>
           </div>
