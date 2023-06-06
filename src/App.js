@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar";
 import About from "./components/About";
 import VideoView from "./components/VideoView";
 import Modal from "./components/Modal";
+import NoVideos from "./components/NoVideos";
 
 function App() {
   const [userInput, setUserInput] = useState("");
@@ -80,14 +81,7 @@ function App() {
               />
             }
           />
-          {/* <Route
-            path="*"
-            element={
-              <Modal
-                setShowModal={setShowModal}
-              />
-            }
-          /> */}
+          <Route path="*" element={<NoVideos />} />
           <Route path="/about" element={<About />} />
           <Route path="/videos/:id" element={<VideoView videos={videos} />} />
         </Routes>
