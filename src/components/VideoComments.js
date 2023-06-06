@@ -63,6 +63,7 @@ function VideoComments() {
             );
           })}
         </ul>
+        <hr />
       </div>
       <Share />
     </form>
