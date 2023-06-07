@@ -2,12 +2,18 @@ import "./HomePage.css";
 import React from "react";
 import VideoCards from "./VideoCards";
 
-function HomePage({ handleUserInput, handleClick, userInput, videos, handleEnter, showModal }) {
-  // console.log(videos);
+function HomePage({
+  handleUserInput,
+  handleClick,
+  userInput,
+  videos,
+  handleEnter,
+  showModal,
+}) {
 
   return (
     <div className="search-bar-container">
-      <div className="input-group mb-3">
+      <div className="input-group">
         <input
           onChange={handleUserInput}
           onKeyDown={handleEnter}

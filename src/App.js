@@ -81,7 +81,7 @@ function App() {
               />
             }
           />
-          <Route path="*" element={<NoVideos />} />
+          <Route path="/*" element={<NoVideos />} />
           <Route path="/about" element={<About />} />
           <Route path="/videos/:id" element={<VideoView videos={videos} />} />
         </Routes>

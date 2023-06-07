@@ -2,27 +2,23 @@ import { Link } from "react-router-dom";
 
 function NavBar({ resetVideos }) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-danger">
+    <nav className="navbar navbar-expand-lg navbar-light bg-danger sticky-top">
       <div className="container-fluid">
-        <Link
-          className="navbar-brand"
-          onClick={resetVideos}
-          to="/"
-          style={{ color: "white", fontWeight: "bold", fontSize: "1.5rem" }}
-        >
-          YouTube
-        </Link>
-        <div
-          className="collapse navbar-collapse"
-          onClick={resetVideos}
-          id="navbarNavAltMarkup"
-        >
+        <div className="row">
+          <Link
+            className="navbar-brand"
+            onClick={resetVideos}
+            to="/"
+            style={{ color: "white", fontWeight: "bold", fontSize: "1.5rem" }}
+          >
+            YouTube
+          </Link>
           <div className="navbar-nav">
             <Link
               className="nav-link active"
               aria-current="page"
               to="/"
-              // onClick={handleHomeClick}
+              onClick={resetVideos}
               style={{ color: "white", fontSize: "1.2rem", paddingTop: "10px" }}
             >
               Home
@@ -30,6 +26,7 @@ function NavBar({ resetVideos }) {
             <Link
               className="nav-link"
               to="/about"
+              onClick={resetVideos}
               style={{ color: "white", fontSize: "1.2rem", paddingTop: "10px" }}
             >
               About
